@@ -1,0 +1,9 @@
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\bin\Debug\SKM Examples VBNET.exe
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\bin\Debug\SKM Examples VBNET.pdb
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\bin\Debug\SKM Examples VBNET.xml
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.vbprojResolveAssemblyReference.cache
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM_Examples_VBNET.Resources.resources
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.vbproj.GenerateResource.Cache
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.exe
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.xml
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.pdb

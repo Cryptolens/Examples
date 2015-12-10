@@ -1,0 +1,8 @@
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\bin\Debug\SKM Examples CSharp.exe
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\bin\Debug\SKM Examples CSharp.pdb
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\obj\Debug\SKM Examples CSharp.csprojResolveAssemblyReference.cache
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\obj\Debug\SKM Examples CSharp.exe
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\obj\Debug\SKM Examples CSharp.pdb
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\bin\Debug\Newtonsoft.Json.dll
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\bin\Debug\SKM.dll
+c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples CSharp\bin\Debug\Newtonsoft.Json.xml
