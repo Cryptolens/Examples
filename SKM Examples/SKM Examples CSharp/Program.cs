@@ -12,6 +12,8 @@ namespace SKM_Examples_CSharp
         static void Main(string[] args)
         {
             KeyActivation();
+            AddFeature();
+            RemoveFeature();
             Console.ReadLine();
         }
 
@@ -38,6 +40,44 @@ namespace SKM_Examples_CSharp
             {
                 //invalid key
                 Console.WriteLine("Failed activation.");
+            }
+
+        }
+
+        static void AddFeature()
+        {
+            var keydata = new FeatureModel() { Key = "LXWVI-HSJDU-CADTC-BAJGW", Feature = 2, ProductId = 3349 };
+            var auth = new AuthDetails() { Token = "WyI2Iiwib3lFQjFGYk5pTHYrelhIK2pveWdReDdEMXd4ZDlQUFB3aGpCdTRxZiJd" };
+
+            var result = SKM.AddFeature(auth, keydata);
+
+            if (result != null && result.Result == ResultType.Success)
+            {
+                // feature 2 is set to true.
+                Console.WriteLine("Feature 2 set to true");
+            }
+            else
+            {
+                Console.WriteLine("Feature 2 was not changed because of an error: " + result.Message);
+            }
+        }
+
+        static void RemoveFeature()
+        {
+
+            var keydata = new FeatureModel() { Key = "LXWVI-HSJDU-CADTC-BAJGW", Feature = 2, ProductId = 3349 };
+            var auth = new AuthDetails() { Token = "WyI2Iiwib3lFQjFGYk5pTHYrelhIK2pveWdReDdEMXd4ZDlQUFB3aGpCdTRxZiJd" };
+
+            var result = SKM.RemoveFeature(auth, keydata);
+
+            if (result != null && result.Result == ResultType.Success)
+            {
+                // feature 2 is set to false.
+                Console.WriteLine("Feature 2 set to false");
+            }
+            else
+            {
+                Console.WriteLine("Feature 2 was not changed because of an error: " + result.Message);
             }
 
         }

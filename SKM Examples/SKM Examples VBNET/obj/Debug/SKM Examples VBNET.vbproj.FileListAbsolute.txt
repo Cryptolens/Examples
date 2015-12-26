@@ -7,3 +7,15 @@ c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM
 c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.exe
 c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.xml
 c:\users\artem los\documents\visual studio 2015\Projects\SKM Examples CSharp\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.pdb
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.exe
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.xml
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.pdb
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.vbprojResolveAssemblyReference.cache
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\obj\Debug\SKM_Examples_VBNET.Resources.resources
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\obj\Debug\SKM Examples VBNET.vbproj.GenerateResource.Cache
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\bin\Debug\SKM Examples VBNET.exe
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\bin\Debug\SKM Examples VBNET.pdb
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\bin\Debug\SKM Examples VBNET.xml
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\bin\Debug\SKM.dll
+C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples VBNET\bin\Debug\Newtonsoft.Json.xml
