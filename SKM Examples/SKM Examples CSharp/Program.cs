@@ -81,5 +81,52 @@ namespace SKM_Examples_CSharp
             }
 
         }
+
+        static void KeepTrackOfUsageCounter()
+        {
+            var authForNewToken = new AuthDetails { Token = "" };
+
+            var result = SKM.KeyLock(authForNewToken, new KeyLockModel { Key = "key string", ProductId = 3 });
+
+            var auth = result.GetAuthDetails();
+            var keyId = result.KeyId;
+
+
+            var counter = SKM.ListDataObjects(auth, new ListDataObjectsModel
+            {
+                Contains = "UsageCount",
+                ReferencerType = DataObjectType.Key,
+                ReferencerId = (int)keyId
+            }).DataObjects.FirstOrDefault();
+
+            if (counter == null)
+            {
+                // this license key does not have a counter configured yet.
+                // so, let's create one!
+
+                var addResult = SKM.AddDataObject(auth, new AddDataObjectModel
+                {
+                    IntValue = 1,
+                    Name = "UsageCount",
+                    ReferencerType = DataObjectType.Key,
+                    ReferencerId = (int)keyId
+                });
+
+                if (addResult != null && addResult.Result == ResultType.Success)
+                {
+                    Console.WriteLine("Usage counter created!");
+                }
+                else
+                {
+                    Console.WriteLine("An error occurred. Could not create a new data object.");
+                }
+            }
+            else
+            {
+                // this license has an existing usage counter.
+                // we could check the value and then increment,
+                // however, SKM will do it for us. 
+            }
+        }
     }
 }

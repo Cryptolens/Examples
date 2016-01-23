@@ -37,8 +37,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="SKM, Version=3.0.1.1, Culture=neutral, PublicKeyToken=e62d9da6f287ebbb, processorArchitecture=MSIL">
-      <HintPath>..\packages\SKGLExtension.3.0.1.1\lib\SKM.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SKGL-Extension-for-dot-NET\SKM\bin\Debug\SKM.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
