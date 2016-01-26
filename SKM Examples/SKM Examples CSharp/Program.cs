@@ -11,9 +11,10 @@ namespace SKM_Examples_CSharp
     {
         static void Main(string[] args)
         {
-            KeyActivation();
-            AddFeature();
-            RemoveFeature();
+            KeepTrackOfUsageCounter();
+            //KeyActivation();
+            //AddFeature();
+            //RemoveFeature();
             Console.ReadLine();
         }
 
@@ -84,13 +85,28 @@ namespace SKM_Examples_CSharp
 
         static void KeepTrackOfUsageCounter()
         {
-            var authForNewToken = new AuthDetails { Token = "" };
+            // here are some variables we need to configure:
 
-            var result = SKM.KeyLock(authForNewToken, new KeyLockModel { Key = "key string", ProductId = 3 });
+            var token = "WyIyNSIsInM0R3V0ckFBeVJJSmlJNmlDVStOM1pFWnQ5eUpXYWU4VzhWOHJPZ3YiXQ==";
+            var keyString = "KMIAK-KYVVZ-QSFQQ-KKSJC";
+            var productId = 3349;
+            var maxNoOfTimes = 10; // the number of times the user should have access to the feature.
+
+            var storedToken = Properties.Settings.Default.token; // just a way to store the token to avoid look up
+                                                                 //AuthDetails auth = null;
+                                                                 //long keyId = 0;
+                                                                 //if (storedToken != null && storedToken != "")
+                                                                 //{
+            var authForNewToken = new AuthDetails { Token = token };
+
+            var result = SKM.KeyLock(authForNewToken, new KeyLockModel { Key = keyString, ProductId = productId });
 
             var auth = result.GetAuthDetails();
             var keyId = result.KeyId;
 
+            //}
+
+            
 
             var counter = SKM.ListDataObjects(auth, new ListDataObjectsModel
             {
@@ -126,7 +142,27 @@ namespace SKM_Examples_CSharp
                 // this license has an existing usage counter.
                 // we could check the value and then increment,
                 // however, SKM will do it for us. 
+                // we simply set an upper bound to maxNoOfTimes.
+
+                var incrementResult = SKM.IncrementIntValue(auth, new ChangeIntValueModel
+                {
+                    Id = counter.Id,
+                    IntValue = 1,
+                    EnableBound = true,
+                    Bound = maxNoOfTimes
+                });
+
+                if (incrementResult != null && incrementResult.Result == ResultType.Success)
+                {
+                    Console.WriteLine("Usage counter updated.");
+                }
+                else
+                {
+                    Console.WriteLine("The counter has reached the maximum number.");
+                }
             }
+
         }
+        
     }
 }
