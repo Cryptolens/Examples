@@ -88,32 +88,47 @@ namespace SKM_Examples_CSharp
             // here are some variables we need to configure:
 
             var token = "WyIyNSIsInM0R3V0ckFBeVJJSmlJNmlDVStOM1pFWnQ5eUpXYWU4VzhWOHJPZ3YiXQ==";
+
+            // we only need the key once. when it is saved, we don't need to ask the user again.
             var keyString = "KMIAK-KYVVZ-QSFQQ-KKSJC";
             var productId = 3349;
             var maxNoOfTimes = 10; // the number of times the user should have access to the feature.
 
-            var storedToken = Properties.Settings.Default.token; // just a way to store the token to avoid look up
-                                                                 //AuthDetails auth = null;
-                                                                 //long keyId = 0;
-                                                                 //if (storedToken != null && storedToken != "")
-                                                                 //{
-            var authForNewToken = new AuthDetails { Token = token };
+            var storedKey = new KeyInformation().LoadFromFile("licensefile.txt"); // make sure you have write permission here
 
-            var result = SKM.KeyLock(authForNewToken, new KeyLockModel { Key = keyString, ProductId = productId });
+            AuthDetails auth = null;
+            long keyId = 0;
+            if (storedKey.IsValid() && storedKey.Auth != null && storedKey.Auth.Token != "")
+            {
+                auth = storedKey.Auth;
+                keyId = storedKey.Id;
+            }
+            else
+            {
+                TokenGen(token, keyString, productId, out auth, out keyId);
+            }
 
-            var auth = result.GetAuthDetails();
-            var keyId = result.KeyId;
 
-            //}
-
-            
-
-            var counter = SKM.ListDataObjects(auth, new ListDataObjectsModel
+            var dataresult = SKM.ListDataObjects(auth, new ListDataObjectsModel
             {
                 Contains = "UsageCount",
                 ReferencerType = DataObjectType.Key,
                 ReferencerId = (int)keyId
-            }).DataObjects.FirstOrDefault();
+            });
+
+            DataObject counter = null;
+            if(dataresult != null && dataresult.Result == ResultType.Success)
+            {
+                counter = dataresult.DataObjects.FirstOrDefault();
+            }
+            else
+            {
+                // the token no longer has permission. we need a new one.
+                storedKey.Auth = null;
+                storedKey.SaveToFile("licensefile.txt");
+                Console.WriteLine("Unable to authenticate. Please try again!");
+                return;
+            }
 
             if (counter == null)
             {
@@ -162,6 +177,16 @@ namespace SKM_Examples_CSharp
                 }
             }
 
+        }
+        static void TokenGen(string token, string keyString, int productId, out AuthDetails auth, out long keyId)
+        {
+            var authForNewToken = new AuthDetails { Token = token };
+
+            var result = SKM.KeyLock(authForNewToken, new KeyLockModel { Key = keyString, ProductId = productId });
+            auth = result.GetAuthDetails();
+            keyId = result.KeyId;
+
+            var keyInfo = new KeyInformation { Auth = auth, Id = keyId, Key = keyString }.SaveToFile("licensefile.txt");
         }
         
     }
