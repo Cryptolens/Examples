@@ -94,8 +94,13 @@ namespace SKM_Examples_CSharp
             var productId = 3349;
             var maxNoOfTimes = 10; // the number of times the user should have access to the feature.
 
+
+            // 1. Load key information from a file (to see if we've done this before)
             var storedKey = new KeyInformation().LoadFromFile("licensefile.txt"); // make sure you have write permission here
 
+            // The idea here is to check if we already have an access token to access the desired key.
+            // If yes, we read it, if no, we call the KeyLock method with our main access token (defined above)
+            // and get a new access token, which we later store.
             AuthDetails auth = null;
             long keyId = 0;
             if (storedKey.IsValid() && storedKey.Auth != null && storedKey.Auth.Token != "")
