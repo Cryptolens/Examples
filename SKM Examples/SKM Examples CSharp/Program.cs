@@ -11,7 +11,8 @@ namespace SKM_Examples_CSharp
     {
         static void Main(string[] args)
         {
-            KeepTrackOfUsageCounter();
+            //KeepTrackOfUsageCounter();
+            KeepTrackOfUsageCounterWithoutStoringToken();
             //KeyActivation();
             //AddFeature();
             //RemoveFeature();
@@ -113,7 +114,8 @@ namespace SKM_Examples_CSharp
                 TokenGen(token, keyString, productId, out auth, out keyId);
             }
 
-
+            // 2. At this stage, we have a new access token locked to the specific key.
+            // We can use it for the methods below as long as it has not expired (1 days by default).
             var dataresult = SKM.ListDataObjects(auth, new ListDataObjectsModel
             {
                 Contains = "UsageCount",
@@ -193,6 +195,94 @@ namespace SKM_Examples_CSharp
 
             var keyInfo = new KeyInformation { Auth = auth, Id = keyId, Key = keyString }.SaveToFile("licensefile.txt");
         }
-        
+
+
+        static void KeepTrackOfUsageCounterWithoutStoringToken()
+        {
+            // here are some variables we need to configure:
+
+            var token = "WyIyNSIsInM0R3V0ckFBeVJJSmlJNmlDVStOM1pFWnQ5eUpXYWU4VzhWOHJPZ3YiXQ==";
+
+            // we only need the key once. when it is saved, we don't need to ask the user again.
+            var keyString = "KMIAK-KYVVZ-QSFQQ-KKSJC";
+            var productId = 3349;
+            var maxNoOfTimes = 10; // the number of times the user should have access to the feature.
+
+            AuthDetails auth = null;
+            long keyId = 0;
+
+            var result = SKM.KeyLock(new AuthDetails { Token = token}, new KeyLockModel { Key = keyString, ProductId = productId });
+            auth = result.GetAuthDetails();
+            keyId = result.KeyId;
+
+
+            // At this stage, we have a new access token locked to the specific key.
+            // We can use it for the methods below as long as it has not expired (1 days by default).
+            var dataresult = SKM.ListDataObjects(auth, new ListDataObjectsModel
+            {
+                Contains = "UsageCount",
+                ReferencerType = DataObjectType.Key,
+                ReferencerId = (int)keyId
+            });
+
+            DataObject counter = null;
+            if (dataresult != null && dataresult.Result == ResultType.Success)
+            {
+                counter = dataresult.DataObjects.FirstOrDefault();
+            }
+            else
+            {
+                Console.WriteLine("Unable to authenticate. Please try again!");
+                return;
+            }
+
+            if (counter == null)
+            {
+                // this license key does not have a counter configured yet.
+                // so, let's create one!
+
+                var addResult = SKM.AddDataObject(auth, new AddDataObjectModel
+                {
+                    IntValue = 1,
+                    Name = "UsageCount",
+                    ReferencerType = DataObjectType.Key,
+                    ReferencerId = (int)keyId
+                });
+
+                if (addResult != null && addResult.Result == ResultType.Success)
+                {
+                    Console.WriteLine("Usage counter created!");
+                }
+                else
+                {
+                    Console.WriteLine("An error occurred. Could not create a new data object.");
+                }
+            }
+            else
+            {
+                // this license has an existing usage counter.
+                // we could check the value and then increment,
+                // however, SKM will do it for us. 
+                // we simply set an upper bound to maxNoOfTimes.
+
+                var incrementResult = SKM.IncrementIntValue(auth, new ChangeIntValueModel
+                {
+                    Id = counter.Id,
+                    IntValue = 1,
+                    EnableBound = true,
+                    Bound = maxNoOfTimes
+                });
+
+                if (incrementResult != null && incrementResult.Result == ResultType.Success)
+                {
+                    Console.WriteLine("Usage counter updated.");
+                }
+                else
+                {
+                    Console.WriteLine("The counter has reached the maximum number.");
+                }
+            }
+
+        }
     }
 }
