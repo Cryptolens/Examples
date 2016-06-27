@@ -50,8 +50,8 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SKM, Version=3.0.1.1, Culture=neutral, PublicKeyToken=e62d9da6f287ebbb, processorArchitecture=MSIL">
-      <HintPath>..\packages\SKGLExtension.3.0.1.1\lib\SKM.dll</HintPath>
+    <Reference Include="SKM, Version=4.0.1.2, Culture=neutral, PublicKeyToken=7fb118a02d446589, processorArchitecture=MSIL">
+      <HintPath>..\packages\SKGLExtension.4.0.1.2\lib\SKM.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

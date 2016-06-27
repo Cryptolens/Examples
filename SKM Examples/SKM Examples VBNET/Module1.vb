@@ -1,39 +1,60 @@
-﻿Imports SKGL
+﻿Imports SKM.V3
+Imports SKM.V3.Models
+Imports SKM.V3.Methods
 Module Module1
 
     Sub Main()
-        KeyActivation()
-        AddFeature()
-        RemoveFeature()
-
+        'KeyActivation()
+        'AddFeature()
+        'RemoveFeature()
+        GetKeysExample()
         Console.ReadLine()
-
-
     End Sub
 
+    Private Sub GetKeysExample()
+        Dim parameters = New GetKeysModel() With {
+            .ProductId = 3,
+            .Page = 1
+        }
 
-    Private Sub KeyActivation()
+        Dim auth = "{access token with GetKeys permission and optional product lock}"
 
-        Dim machineCode As String = SKM.getMachineCode(AddressOf SKM.getSHA1)
-        ' using SHA1 as the hashing algorithm
-        Dim licensekey As String = "MNIVR-MGQRL-QGUZK-BGJHQ"
+        Dim result = Product.GetKeys(token:=auth, parameters:=parameters)
 
-        Dim keyinfo = SKM.KeyActivation(pid:="3", uid:="2", hsum:="751963", sid:=licensekey, mid:=machineCode)
+        If (result IsNot Nothing AndAlso result.Result = ResultType.Success) Then
+            ' successful 
 
-        Dim newKey = keyinfo.NewKey
+            ' displays the first 99 keys of the product.
+            ' simply increment Page to 2 in order to get
+            ' the rest.
+            For Each key As LicenseKey In result.LicenseKeys
+                Console.WriteLine(key.Key)
+            Next
 
-        If keyinfo.IsValid() Then
-            'valid key
-
-            Console.WriteLine("Created:" & keyinfo.CreationDate.ToShortDateString())
-
-            Console.WriteLine("Expired?: " & keyinfo.HasNotExpired().IsValid())
-        Else
-            'invalid key
-            Console.WriteLine("Failed activation.")
         End If
 
     End Sub
+
+    Private Sub GenerateKey()
+
+        Dim parameters = New CreateKeyModel() With {
+            .ProductId = 3,
+            .F1 = 1,
+            .Period = 30
+        }
+
+        Dim auth = "{access token with CreateKey permission and optional product lock}"
+
+        Dim result = Key.CreateKey(token:=auth, parameters:=parameters)
+
+        If (result IsNot Nothing AndAlso result.Result = ResultType.Success) Then
+            ' successful
+            Console.WriteLine(result.Key)
+        End If
+
+
+    End Sub
+
 
 
     Private Sub AddFeature()
@@ -43,12 +64,10 @@ Module Module1
             .ProductId = 3349
         }
 
-        Dim auth = New AuthDetails() With {
-            .Token = "WyI2Iiwib3lFQjFGYk5pTHYrelhIK2pveWdReDdEMXd4ZDlQUFB3aGpCdTRxZiJd"
-        }
+        Dim auth = "WyI2Iiwib3lFQjFGYk5pTHYrelhIK2pveWdReDdEMXd4ZDlQUFB3aGpCdTRxZiJd"
 
 
-        Dim result = SKM.AddFeature(auth, keydata)
+        Dim result = Key.AddFeature(auth, keydata)
 
         If result IsNot Nothing AndAlso result.Result = ResultType.Success Then
             ' feature 2 is set to true.
@@ -69,11 +88,10 @@ Module Module1
             .ProductId = 3349
         }
 
-        Dim auth = New AuthDetails() With {
-            .Token = "WyI2Iiwib3lFQjFGYk5pTHYrelhIK2pveWdReDdEMXd4ZDlQUFB3aGpCdTRxZiJd"
-        }
+        Dim auth = "WyI2Iiwib3lFQjFGYk5pTHYrelhIK2pveWdReDdEMXd4ZDlQUFB3aGpCdTRxZiJd"
 
-        Dim result = SKM.RemoveFeature(auth, keydata)
+
+        Dim result = key.RemoveFeature(auth, keydata)
 
         If result IsNot Nothing AndAlso result.Result = ResultType.Success Then
             ' feature 2 is set to false.

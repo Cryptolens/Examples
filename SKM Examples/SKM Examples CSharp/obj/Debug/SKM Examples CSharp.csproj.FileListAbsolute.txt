@@ -14,6 +14,4 @@ C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\bi
 C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\bin\Debug\SKM.dll
 C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\obj\Debug\SKM Examples CSharp.csprojResolveAssemblyReference.cache
-C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\bin\Debug\SKM.pdb
-C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\bin\Debug\SKM.xml
 C:\Users\Artem Los\Documents\GitHub\Examples\SKM Examples\SKM Examples CSharp\bin\Debug\SKM Examples CSharp.exe.config
