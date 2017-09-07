@@ -14,16 +14,16 @@ Public Class Form1
             ' either we get a fresh copy of the license or we use the existing one (given it is no more than 90 days old)
             If license.Refresh(token, True) Or license.HasValidSignature(publicKey, 90).IsValid() Then
 
-                Button1.Enabled = license.HasFeature(3).IsValid() ' either we have feature1 or not.
-                Button2.Enabled = license.HasFeature(4).IsValid() ' either we have feature2 or not.
-                Button4.Enabled = license.HasFeature(5).IsValid() ' either we have feature3 or not.
+                Button1.Enabled = license.HasFeature(1).IsValid() ' either we have feature1 or not.
+                Button2.Enabled = license.HasFeature(2).IsValid() ' either we have feature2 or not.
+                Button4.Enabled = license.HasFeature(3).IsValid() ' either we have feature3 or not.
 
                 Text = "Digital Tools"
 
-                If license.HasFeature(1).HasNotExpired().IsValid() Then
+                If license.HasFeature(4).HasNotExpired().IsValid() Then
                     ' feature 1 is a time limited, so we check that it has not expired.
                     Text = "Digital Tools - " + license.DaysLeft().ToString() + " day(s) left"
-                ElseIf license.HasNotFeature(1).IsValid() Then
+                ElseIf license.HasNotFeature(4).IsValid() Then
                     ' not time limited.
 
                 Else
