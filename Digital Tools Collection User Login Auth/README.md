@@ -31,36 +31,48 @@ Note, you need to install both **SKGLExtension** and **Cryptolens.SKM**. More ab
 
 ```
 Private Sub RefreshLicense()
+
     If My.Settings.usertoken = "" Then
         My.Settings.usertoken = Nothing
     End If
+
+
     ' This is found at https://serialkeymanager.com/User/Security
     Dim RSAPublicKey = New RSACryptoServiceProvider(2048)
     RSAPublicKey.FromXmlString("RSA Public Key replace with yours")
+    
     Dim authRequest = UserLoginAuth.GetLicenseKeys(SKGL.SKM.getMachineCode(AddressOf SKGL.SKM.getSHA256), "Access token with GetKey permission", "Test Application", 5, RSAPublicKey.ExportParameters(False), My.Settings.usertoken,
         New RSACryptoServiceProvider(2048))
+    
     If authRequest.[error] Is Nothing Then
         Dim data = JsonConvert.DeserializeObject(Of GetLicenseKeysResult)(authRequest.jsonResult)
+
         Dim licenses = JsonConvert.DeserializeObject(Of List(Of KeyInfoResult))(System.Text.UTF8Encoding.UTF8.GetString(Convert.FromBase64String(data.Results)))
+
         Dim voiceRecorder = licenses.Where(Function(x) x.LicenseKey.ProductId = 3349 AndAlso x.LicenseKey.F1 = True AndAlso x.LicenseKey.HasNotExpired().IsValid())
         Dim videoRecorder = licenses.Where(Function(x) x.LicenseKey.ProductId = 3349 AndAlso x.LicenseKey.F2 = True AndAlso x.LicenseKey.HasNotExpired().IsValid())
         Dim converter = licenses.Where(Function(x) x.LicenseKey.ProductId = 3349 AndAlso x.LicenseKey.F3 = True AndAlso x.LicenseKey.HasNotExpired().IsValid())
+
         If voiceRecorder.Count() >= 1 Then
             Button1.Enabled = True
         Else
             Button1.Enabled = False
         End If
+
         If videoRecorder.Count() >= 1 Then
             Button2.Enabled = True
         Else
             Button2.Enabled = False
         End If
+
         If converter.Count() >= 1 Then
             Button4.Enabled = True
         Else
             Button4.Enabled = False
         End If
+
         My.Settings.usertoken = authRequest.licenseKeyToken
+        
     Else
         MsgBox("An error occurred or no valid license could be found.")
         My.Settings.usertoken = ""
