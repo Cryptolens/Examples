@@ -78,6 +78,38 @@ Private Sub RefreshLicense()
         My.Settings.usertoken = ""
     End If
 End Sub
+
+Public Class GetLicenseKeysResult
+    Inherits BasicResult
+    Public Property Results() As String
+        Get
+            Return m_Results
+        End Get
+        Set
+            m_Results = Value
+        End Set
+    End Property
+    Private m_Results As String
+    Public Property ActivatedMachineCodes() As String
+        Get
+            Return m_ActivatedMachineCodes
+        End Get
+        Set
+            m_ActivatedMachineCodes = Value
+        End Set
+    End Property
+    Private m_ActivatedMachineCodes As String
+    Public Property Signature() As String
+        Get
+            Return m_Signature
+        End Get
+        Set
+            m_Signature = Value
+        End Set
+    End Property
+    Private m_Signature As String
+End Class
+
 ```
 
 ## Remarks
