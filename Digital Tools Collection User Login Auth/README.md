@@ -109,7 +109,6 @@ Public Class GetLicenseKeysResult
     End Property
     Private m_Signature As String
 End Class
-
 ```
 
 ## Remarks
