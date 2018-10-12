@@ -1,6 +1,6 @@
-# SKM Examples
+# Cryptolens Examples
 
-This repository contains examples of how [SKM Platform](https://app.cryptolens.io) can be used to license C# and VB.NET projects.
+This repository contains examples of how [Cryptolens](https://app.cryptolens.io) can be used to license C# and VB.NET projects.
 
 ## Quick start
 
