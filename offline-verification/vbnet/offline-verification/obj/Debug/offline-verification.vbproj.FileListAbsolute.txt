@@ -1,0 +1,15 @@
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\offline-verification.exe.config
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\offline-verification.exe
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\offline-verification.pdb
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\offline-verification.xml
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\SKM.dll
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.vbprojResolveAssemblyReference.cache
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline_verification.Resources.resources
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.vbproj.GenerateResource.cache
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.vbproj.CoreCompileInputs.cache
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.vbproj.CopyComplete
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.exe
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.xml
+C:\Users\Artem Los\Documents\Cryptolens\examples\offline-verification\vbnet\offline-verification\obj\Debug\offline-verification.pdb

@@ -1,0 +1,33 @@
+{
+  "productId": 3843,
+  "id": 1,
+  "key": "JJWTE-MVKLR-YQMKD-IFXUV",
+  "created": "2018-02-19T00:00:00",
+  "expires": "2018-05-16T00:00:00",
+  "period": 10,
+  "f1": true,
+  "f2": true,
+  "f3": false,
+  "f4": false,
+  "f5": false,
+  "f6": false,
+  "f7": false,
+  "f8": false,
+  "notes": "POST",
+  "block": false,
+  "globalId": 36760,
+  "customer": null,
+  "activatedMachines": [
+    {
+      "mid": "DE7F9D0CDB1B68DAE79BAE2BAC478EBAB6828CB9F012503CEA30B58434C14080",
+      "ip": "84.217.198.13",
+      "time": "2018-06-06T09:43:28.177"
+    }
+  ],
+  "trialActivation": false,
+  "maxNoOfMachines": 5,
+  "allowedMachines": "",
+  "dataObjects": [],
+  "signDate": "2018-06-06T09:43:28",
+  "signature": "S3HkQI3EniKCGto0EIi8xNWewL3Tl+J8cmUak5PP/rGp2yQyOc0zbIcOAx+y5ikbRE7NnVrBHp6A63h79ibz0AZWy8zpZFFHcnsvH4JusVVlGXOOErgZwnv42olOUbPz2JVeVOWFKq9JuXawDB1K9WDJV0+yTh7DDQ5mkwNmB2JwIQ/pWQ+61y/qCRPl8zjVQ5LDVcLHdhsHRMtpZeBFixfZQoXDRq6elnCeJnyh8tgHLRZ384HcJeti2Zr7m3Yhz0W/NSKLAtSVquVrIIcBAeqfDtbU6FVE41MxMRvQfdsixeyldlkcjyxYstHlW1eHhA2A3oBk17RTvar/whHAkQ=="
+}

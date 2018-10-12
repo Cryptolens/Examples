@@ -1,0 +1,15 @@
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\air-gapped.exe.config
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\air-gapped.exe
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\air-gapped.pdb
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\air-gapped.xml
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\SKM.dll
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.vbprojResolveAssemblyReference.cache
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air_gapped.Resources.resources
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.vbproj.GenerateResource.cache
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.vbproj.CoreCompileInputs.cache
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.vbproj.CopyComplete
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.exe
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.xml
+C:\Users\Artem Los\Documents\Cryptolens\examples\air-gapped\vb.net\air-gapped\obj\Debug\air-gapped.pdb

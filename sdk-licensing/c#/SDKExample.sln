@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKExample", "SDKExample\SDKExample.csproj", "{EFC42FA9-7F7E-480B-94E9-CC032BA05F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKTestApp", "SDKTestApp\SDKTestApp.csproj", "{14FDC37C-64AD-4B86-A011-118282A556F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFC42FA9-7F7E-480B-94E9-CC032BA05F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC42FA9-7F7E-480B-94E9-CC032BA05F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC42FA9-7F7E-480B-94E9-CC032BA05F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC42FA9-7F7E-480B-94E9-CC032BA05F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FDC37C-64AD-4B86-A011-118282A556F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FDC37C-64AD-4B86-A011-118282A556F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FDC37C-64AD-4B86-A011-118282A556F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FDC37C-64AD-4B86-A011-118282A556F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F7BABC1-673B-474B-96FC-68592DAB326D}
+	EndGlobalSection
+EndGlobal
