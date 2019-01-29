@@ -1,18 +1,28 @@
 ﻿Imports SKM.V3
+Imports SKM.V3.Methods
+Imports SKM.V3.Models
 
 Public Class Form1
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         NoLicense()
 
+        ' The code below is based on https://help.cryptolens.io/examples/key-verification.
+
         Dim license = New LicenseKey().LoadFromFile()
         Dim publicKey = "<RSAKeyValue><Modulus>sGbvxwdlDbqFXOMlVUnAF5ew0t0WpPW7rFpI5jHQOFkht/326dvh7t74RYeMpjy357NljouhpTLA3a6idnn4j6c3jmPWBkjZndGsPL4Bqm+fwE48nKpGPjkj4q/yzT4tHXBTyvaBjA8bVoCTnu+LiC4XEaLZRThGzIn5KQXKCigg6tQRy0GXE13XYFVz/x1mjFbT9/7dS8p85n8BuwlY5JvuBIQkKhuCNFfrUxBWyu87CFnXWjIupCD2VO/GbxaCvzrRjLZjAngLCMtZbYBALksqGPgTUN7ZM24XbPWyLtKPaXF2i4XRR9u6eTj5BfnLbKAU5PIVfjIS+vNYYogteQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
-
-        Dim token = "WyIxNzIiLCJhak9OT1g3NW90YlQyRFFVUzBWdnlGSHJYdUpMdDA0REMxNzNOa2duIl0="
+        Dim token = "WyIyNjAxIiwiL0ZYYndDTm1jTlJNdGRPeDFNS29iNnlaQSs1NTVkZHcyREVWZXFDdyJd"
 
         If license IsNot Nothing Then
 
+            Dim result = Key.Activate(token:=token, parameters:=New ActivateModel() With {
+                          .Key = license.Key,
+                          .ProductId = 3349,
+                          .Sign = True,
+                          .MachineCode = Helpers.GetMachineCode()
+                          })
+
             ' either we get a fresh copy of the license or we use the existing one (given it is no more than 90 days old)
-            If license.Refresh(token, True) Or license.HasValidSignature(publicKey, 90).IsValid() Then
+            If (result.Result <> ResultType.Error And result.LicenseKey.HasValidSignature(publicKey).IsValid) Or license.HasValidSignature(publicKey, 90).IsValid() Then
 
                 Button1.Enabled = license.HasFeature(1).IsValid() ' either we have feature1 or not.
                 Button2.Enabled = license.HasFeature(2).IsValid() ' either we have feature2 or not.
@@ -58,7 +68,7 @@ Public Class Form1
 
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
         Try
-            Process.Start("http://skmapp.com")
+            Process.Start("http://cryptolens.io")
         Catch ex As Exception
 
         End Try
