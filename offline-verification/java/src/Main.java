@@ -32,6 +32,7 @@ public class Main {
                 contents = new String(Files.readAllBytes(Paths.get("licensefile.skm")));
             } catch (IOException e) {
                 e.printStackTrace();
+                return;
             }
 
             LicenseKey licenseFile = LicenseKey.LoadFromString(RSAPubKey, contents, 3);
