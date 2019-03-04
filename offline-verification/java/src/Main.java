@@ -36,7 +36,7 @@ public class Main {
 
             LicenseKey licenseFile = LicenseKey.LoadFromString(RSAPubKey, contents, 3);
 
-            if(licenseFile != null) {
+            if(licenseFile != null && Helpers.IsOnRightMachine(license, currentMachineId)) {
                 System.out.println("Offline mode");
                 System.out.println("The license is valid!");
                 System.out.println("It will expire: " + licenseFile.Expires);
