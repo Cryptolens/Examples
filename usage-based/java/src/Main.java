@@ -45,4 +45,30 @@ public class Main {
             }
         }
     }
+
+    public static void main2() {
+        String auth = "WyIyOTA3IiwiMnNwUTFnb1JNQUt5U204UzR4ZzVkRUpQaWV6cEVXbCtrSkRod2pRTCJd";
+
+        ListOfDataObjectsResult listResult = Data.ListDataObjects(auth, new ListDataObjectsToKeyModel(3941, "FRQHQ-FSOSD-BWOPU-KJOWF", "usagecount"));
+
+        if (!Helpers.IsSuccessful(listResult)) {
+            System.out.println("Could not list the data objects.");
+        }
+
+        BasicResult decrementResult = Data.DecrementIntValue(auth,
+                new DecrementIntValueToKeyModel(
+                        3941,
+                        "FRQHQ-FSOSD-BWOPU-KJOWF",
+                        listResult.DataObjects.get(0).Id,
+                        1,
+                        true,
+                        0));
+
+        if(!Helpers.IsSuccessful(decrementResult)) {
+            System.out.println("Could not decrement the data object");
+        }
+    }
+
+
+    }
 }
