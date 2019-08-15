@@ -11,7 +11,6 @@ namespace retrieving_system_settings
     {
         static void Main(string[] args)
         {
-
             var systemSettings = Data.ListDataObjects("", new ListDataObjectsModel
             {
                 ReferencerType = DataObjectType.Product,
